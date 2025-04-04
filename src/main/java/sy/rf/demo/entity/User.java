@@ -24,7 +24,7 @@ public class User {
 
     // Relation Many-to-One avec Role
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id", nullable = false)
+    @JoinColumn(name = "id_role", nullable = false)
     private Role role;
 
     // Constructeurs, getters et setters

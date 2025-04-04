@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.UUID;
+
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "role")
@@ -12,11 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String nom; // par exemple: "simple utilisateur", "responsable", "administrateur"
 
-    // Getters & Setters
 }
 
