@@ -1,6 +1,7 @@
 package sy.rf.demo.restController;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sy.rf.demo.entity.Domaine;
 import sy.rf.demo.service.DomaineService;
@@ -13,7 +14,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DomaineRestController {
 
-    private final DomaineService domaineService;
+    @Autowired
+      DomaineService domaineService;
 
     @PostMapping
     public Domaine create(@RequestBody Domaine domaine) {

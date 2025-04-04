@@ -23,7 +23,7 @@ public class User {
     private String password;
 
     // Relation Many-to-One avec Role
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_role", nullable = false)
     private Role role;
 

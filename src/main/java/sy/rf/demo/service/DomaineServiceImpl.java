@@ -1,6 +1,7 @@
 package sy.rf.demo.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sy.rf.demo.entity.Domaine;
 import sy.rf.demo.repository.DomaineRepository;
@@ -12,7 +13,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DomaineServiceImpl implements DomaineService {
 
-    private final DomaineRepository domaineRepository;
+
+    @Autowired
+     DomaineRepository domaineRepository;
 
     @Override
     public Domaine createDomaine(Domaine domaine) {

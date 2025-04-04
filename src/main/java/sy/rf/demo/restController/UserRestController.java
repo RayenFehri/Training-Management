@@ -15,7 +15,7 @@ import java.util.UUID;
 public class UserRestController {
 
     @Autowired
-    private UserService userService;
+     UserService userService;
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
