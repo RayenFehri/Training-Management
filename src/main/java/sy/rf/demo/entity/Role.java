@@ -20,6 +20,7 @@
         private String nom; // par exemple: "simple utilisateur", "responsable", "administrateur"
 
 
+        public Role(){}
         public Role(UUID id, String nom) {
             this.id = id;
             this.nom = nom;

@@ -1,6 +1,7 @@
 package sy.rf.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import sy.rf.demo.entity.Role;
 import sy.rf.demo.entity.User;
@@ -18,7 +19,10 @@ public class UserServiceImpl implements UserService {
      UserRepository userRepository;
 
     @Autowired
-     RoleRepository roleRepository; // 🔧 Ajouté pour corriger le bug
+     RoleRepository roleRepository;
+
+    @Autowired
+     PasswordEncoder passwordEncoder;
 
     @Override
     public User addUser(User user) {
@@ -26,7 +30,11 @@ public class UserServiceImpl implements UserService {
         Role role = roleRepository.findById(roleId)
                 .orElseThrow(() -> new RuntimeException("Role not found"));
 
-        user.setRole(role); // on set un Role bien persistant
+        user.setRole(role);
+
+        // 🔐 Encode le mot de passe avant sauvegarde
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         return userRepository.save(user);
     }
 
@@ -44,7 +52,11 @@ public class UserServiceImpl implements UserService {
     public User updateUser(UUID id, User user) {
         return userRepository.findById(id).map(existingUser -> {
             existingUser.setEmail(user.getEmail());
-            existingUser.setPassword(user.getPassword());
+
+            // 🔐 Encode le mot de passe si modifié
+            if (user.getPassword() != null && !user.getPassword().isBlank()) {
+                existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
+            }
 
             UUID roleId = user.getRole().getId();
             Role role = roleRepository.findById(roleId)
