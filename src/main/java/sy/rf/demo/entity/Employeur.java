@@ -15,4 +15,20 @@ public class Employeur {
     private UUID id;
     @Column(nullable = false)
     private String nomemployeur;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getNomemployeur() {
+        return nomemployeur;
+    }
+
+    public void setNomemployeur(String nomemployeur) {
+        this.nomemployeur = nomemployeur;
+    }
 }

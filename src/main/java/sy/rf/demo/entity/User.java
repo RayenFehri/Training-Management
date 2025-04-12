@@ -9,7 +9,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "users", schema = "auth")
 @Data
-
 public class User {
 
     @Id

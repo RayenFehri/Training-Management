@@ -30,7 +30,7 @@ public class Formateur {
     @JoinColumn(name = "id_user")
     private User user;
 
-
+public Formateur(){}
 
     public Formateur(UUID id, String nom, String prenom, String email, Long tel, String type, Employeur employeur, User user) {
         this.id = id;
