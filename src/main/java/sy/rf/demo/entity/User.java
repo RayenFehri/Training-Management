@@ -22,7 +22,7 @@ public class User {
     @Column(name = "encrypted_password", nullable = false)
     private String password;
 
-    // Relation Many-to-One avec Role
+    // Relation Many-to-One avec Rolee
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_role", nullable = false)
     private Role role;
