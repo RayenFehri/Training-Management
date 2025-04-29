@@ -12,6 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/formateurs")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class FormateurRestController {
 
     @Autowired

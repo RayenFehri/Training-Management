@@ -17,7 +17,7 @@
         @GeneratedValue(strategy = GenerationType.UUID)
         private UUID id;
 
-        private String nom; // par exemple: "simple utilisateur", "responsable", "administrateur"
+        private String nom;
 
 
         public Role(){}

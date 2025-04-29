@@ -8,5 +8,7 @@ import java.util.UUID;
 public class RegisterRequest {
     private String email;
     private String password;
-    private UUID roleId; // on attend un ID de rôle (ex: "ADMIN", "FORMATEUR", etc.)
+    private UUID roleId;
+    private String nom;
+    private String prenom;
 }

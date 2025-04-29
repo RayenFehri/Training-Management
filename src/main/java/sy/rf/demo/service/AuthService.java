@@ -1,6 +1,9 @@
 package sy.rf.demo.service;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import sy.rf.demo.dto.AuthRequest;
 import sy.rf.demo.dto.AuthResponse;
 import sy.rf.demo.dto.RegisterRequest;
@@ -45,7 +48,17 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token);
+        // Récupérer l'utilisateur complet pour obtenir les informations
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        return new AuthResponse(
+                token,
+                user.getNom(),
+                user.getPrenom(),
+                user.getEmail(),
+                user.getRole().getNom()
+        );
     }
 
     public AuthResponse register(RegisterRequest request) {
@@ -60,6 +73,8 @@ public class AuthService {
         newUser.setEmail(request.getEmail());
         newUser.setPassword(passwordEncoder.encode(request.getPassword()));
         newUser.setRole(role);
+        newUser.setNom(request.getNom());
+        newUser.setPrenom(request.getPrenom());
 
         userRepository.save(newUser);
 
@@ -67,6 +82,20 @@ public class AuthService {
         UserDetails userDetails = userDetailsService.loadUserByUsername(newUser.getEmail());
         String token = jwtUtil.generateToken(userDetails);
 
-        return new AuthResponse(token);
+        return new AuthResponse(
+                token,
+                newUser.getNom(),
+                newUser.getPrenom(),
+                newUser.getEmail(),
+                newUser.getRole().getNom()
+        );
     }
+
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
+        // Efface le contexte d'authentification
+        SecurityContextHolder.clearContext();
+
+    }
+
+
 }
