@@ -5,5 +5,5 @@ import sy.rf.demo.entity.Profil;
 
 import java.util.UUID;
 
-public interface ProfilRepository extends JpaRepository<Profil, UUID> {
+public interface ProfilRepository extends JpaRepository<Profil, Long> {
 }

@@ -5,5 +5,5 @@ import sy.rf.demo.entity.Domaine;
 
 import java.util.UUID;
 
-public interface DomaineRepository extends JpaRepository<Domaine, UUID> {
+public interface DomaineRepository extends JpaRepository<Domaine, Long> {
 }

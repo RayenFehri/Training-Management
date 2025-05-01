@@ -5,5 +5,5 @@ import sy.rf.demo.entity.Participant;
 
 import java.util.UUID;
 
-public interface ParticipantRepository extends JpaRepository<Participant, UUID> {
+public interface ParticipantRepository extends JpaRepository<Participant, Long> {
 }

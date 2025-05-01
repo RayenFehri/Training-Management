@@ -6,5 +6,5 @@ import sy.rf.demo.entity.Formateur;
 
 import java.util.UUID;
 
-public interface FormateurRepository extends JpaRepository<Formateur, UUID> {
+public interface FormateurRepository extends JpaRepository<Formateur, Long> {
 }

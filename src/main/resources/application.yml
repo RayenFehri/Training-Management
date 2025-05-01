@@ -1,14 +1,21 @@
 spring:
   datasource:
-    url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:6543/postgres
-    username: postgres.aryipbjuaxvjbpwhekxf
-    password: RayenFehri123
+    url: jdbc:postgresql://aws-0-eu-central-1.pooler.supabase.com:5432/postgres
+    username: postgres.vnmmrmmdwsmhwuphxxqt
+    password: despacito123
     driver-class-name: org.postgresql.Driver
     #hibernate config
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  jpa:
+    properties:
       hibernate:
-        ddl-auto: update
-      show-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+
+
+jwt:
+  secret: krOTDgSoVxe2xRP6QrGzVCuldrCRhnuB
+  expiration: 3600000

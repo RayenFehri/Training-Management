@@ -1,14 +1,15 @@
 package sy.rf.demo.service;
 
+import sy.rf.demo.dto.FormateurDto;
 import sy.rf.demo.entity.Formateur;
 
 import java.util.List;
 import java.util.UUID;
 
 public interface FormateurService {
-    Formateur createFormateur(Formateur formateur);
-    Formateur getFormateurById(UUID id);
-    List<Formateur> getAllFormateurs();
-    Formateur updateFormateur(UUID id, Formateur formateur);
-    void deleteFormateur(UUID id);
+    FormateurDto createFormateur(FormateurDto formateur);
+    FormateurDto getFormateurById(Long id);
+    List<FormateurDto> getAllFormateurs();
+    FormateurDto updateFormateur( FormateurDto formateur);
+    void deleteFormateur(Long id);
 }
