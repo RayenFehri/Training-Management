@@ -12,6 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/profils")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProfilRestController {
 
     @Autowired

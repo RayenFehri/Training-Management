@@ -51,13 +51,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User updateUser(UUID id, User user) {
         return userRepository.findById(id).map(existingUser -> {
+            // Update fields
+            existingUser.setNom(user.getNom());
+            existingUser.setPrenom(user.getPrenom());
             existingUser.setEmail(user.getEmail());
 
-            // 🔐 Encode le mot de passe si modifié
+            // Update password only if provided
             if (user.getPassword() != null && !user.getPassword().isBlank()) {
                 existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
             }
 
+            // Update role
             UUID roleId = user.getRole().getId();
             Role role = roleRepository.findById(roleId)
                     .orElseThrow(() -> new RuntimeException("Role not found"));

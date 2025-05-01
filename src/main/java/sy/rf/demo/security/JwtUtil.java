@@ -13,7 +13,7 @@ public class JwtUtil {
 
     // Utiliser une clé suffisamment longue et sécurisée pour HS512
     private final SecretKey SECRET = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-    private final long EXPIRATION_TIME = 86400000; // 1 jour en ms
+    private final long EXPIRATION_TIME = 3600; // 1 jour en ms
 
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder()
