@@ -7,9 +7,10 @@ import java.util.List;
 import java.util.UUID;
 
 public interface FormationService {
-    FormationDto createFormation(FormationDto formation);
+    FormationDto createFormation(FormationDto formationDto);
     FormationDto getFormationById(UUID id);
+    Formation getFormationEntityById(UUID id); // Cette méthode doit exister
     List<FormationDto> getAllFormations();
-    FormationDto updateFormation( FormationDto formation);
+    FormationDto updateFormation(FormationDto formationDto);
     void deleteFormation(UUID id);
 }

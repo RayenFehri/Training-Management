@@ -13,3 +13,4 @@ public interface ParticipantService {
     ParticipantDto updateParticipant( ParticipantDto participant);
     void deleteParticipant(Long id);
 }
+    
