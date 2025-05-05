@@ -45,8 +45,9 @@
         }
 
         @Override
-        public UserDto updateUser( UserDto userDto) {
-            User user=User.builder()
+        public UserDto updateUser(UserDto userDto) {
+            User user = User.builder()
+                    .id(userDto.getId())
                     .nom(userDto.getNom())
                     .prenom(userDto.getPrenom())
                     .email(userDto.getEmail())

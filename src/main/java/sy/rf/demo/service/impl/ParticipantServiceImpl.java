@@ -50,6 +50,7 @@ public class ParticipantServiceImpl implements ParticipantService {
     @Override
     public ParticipantDto updateParticipant( ParticipantDto participantDto) {
         Participant participant = Participant.builder()
+                .id(participantDto.getId())
                 .email(participantDto.getEmail())
                 .nom(participantDto.getNom())
                 .prenom(participantDto.getPrenom())

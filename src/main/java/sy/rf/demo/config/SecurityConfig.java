@@ -80,7 +80,7 @@ public class SecurityConfig  {
                         authorizeRequests
                                 // Public endpoints
                                 .requestMatchers(
-                                        "/auth/**",        // Added login endpoint// Added register endpoint
+                                        "/auth/**",
                                         "/swagger-ui/**",
                                         "/v3/api-docs/**"
                                 ).permitAll()

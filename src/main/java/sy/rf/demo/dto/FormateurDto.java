@@ -14,7 +14,7 @@ public class FormateurDto {
     private String nom;
     private String prenom;
     private String email;
-    private Long tel;
+    private String tel;
     private String type;
     private EmployeurDto employeur;
     private UserDto user;
